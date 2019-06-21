@@ -10,6 +10,7 @@ using GameStoreApp.Models;
 
 namespace GameStoreApp.Controllers
 {
+    [Authorize(Users = "administrator")]
     public class StoreManagerController : Controller
     {
         private GameStoreEntities db = new GameStoreEntities();
