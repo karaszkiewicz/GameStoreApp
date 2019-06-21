@@ -20,9 +20,22 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Strona Główna", "Index", "Home")</li>
                     <li>@Html.ActionLink("Sklep", "Index", "Store")</li>
-                    <li><a href="~/Login.aspx">Zaloguj</a></li>
+                    @{
+
+                        if (User.Identity.IsAuthenticated)
+                        {
+                            if (User.Identity.Name == "administrator")
+                            {
+                                <li>@Html.ActionLink("Zarządzaj Sklepem", "Index", "StoreManager")</li>
+                            }
+                            <li style="float:right"><a href="~/Login.aspx">Wyloguj</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="~/Login.aspx">Zaloguj</a></li>
+                        }
+                    }
                 </ul>
             </div>
         </div>

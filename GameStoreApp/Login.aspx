@@ -25,9 +25,13 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="/">Strona Główna</a></li>
                     <li><a href="/Store">Sklep</a></li>
-                    <li><a href="/Login.aspx">Zaloguj</a></li>
+                    <%if (User.Identity.IsAuthenticated)
+                        {%>
+                    <li><a href="/Login.aspx"> Wyloguj</a></li>
+                    <%} else { %>
+                    <li><a href="/Login.aspx"> Zaloguj</a></li>
+                    <%} %>
                 </ul>
             </div>
         </div>
@@ -36,7 +40,7 @@
         
 
 
-<h3>Podaj dane do logowania</h3>
+
 <form id="form1" runat="server">
       <div>
          <hr />
@@ -46,6 +50,10 @@
             </p>
          </asp:PlaceHolder>
          <asp:PlaceHolder runat="server" ID="LoginForm" Visible="false">
+             <h3>Podaj dane do logowania</h3>
+             <p>
+                Wprowadź nazwę użytkownika i swoje hasło. <a href="/Register.aspx">Zarejestruj się</a> jeśli nie masz konta.
+            </p>
             <div style="margin-bottom: 10px">
                <asp:Label runat="server" AssociatedControlID="UserName">Nazwa użytkownika</asp:Label>
                <div>
@@ -73,6 +81,7 @@
          </asp:PlaceHolder>
       </div>
    </form>
+
         <hr />
         <footer>
             <p>&copy; 2019 - Game Store</p>
