@@ -1,0 +1,17 @@
+﻿@model IEnumerable<GameStoreApp.Models.Category>
+
+@{
+    ViewBag.Title = "Sklep";
+}
+
+<h3>Przeglądaj kategorie</h3>
+<p>
+    Wybierz z @Model.Count() kategorii:
+</p>
+<ul>
+    @foreach (var category in Model)
+    {
+    <li>@Html.ActionLink(category.Name,"Browse", new { category = category.Name })</li>
+    }
+</ul>
+

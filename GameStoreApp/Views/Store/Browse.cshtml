@@ -1,0 +1,14 @@
+﻿@model GameStoreApp.Models.Category
+
+@{
+    ViewBag.Title = "Browse";
+}
+
+<h2>Przeglądana kategoria: @Model.Name</h2>
+
+<ul>
+    @foreach (var game in Model.Games)
+    {
+    <li>@Html.ActionLink(game.Title,"Details", new { id = game.GameID })</li>
+    }
+</ul>

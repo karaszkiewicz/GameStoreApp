@@ -1,0 +1,41 @@
+﻿@model GameStoreApp.Models.Game
+
+@{
+    ViewBag.Title = "Informacje";
+}
+
+<h2>Więcej informacji</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Kategoria   
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Name)
+        </dd>
+
+        <dt>
+            Tytuł
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            Cena
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.GameID }) |
+    @Html.ActionLink("Wróc do listy", "Index")
+</p>

@@ -1,0 +1,22 @@
+﻿@model GameStoreApp.Models.Game
+
+@{
+    ViewBag.Title = "Usuwanie";
+}
+
+<h2>Usuń</h2>
+
+<h3>Czy jesteś pewny, że chcesz usunąć <strong>@Model.Title</strong>?</h3>
+<div>
+    <hr />
+    
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć do listy", "Index")
+        </div>
+    }
+</div>
